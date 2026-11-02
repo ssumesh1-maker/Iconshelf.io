@@ -1,0 +1,2 @@
+importScripts('./vendor/gs.js');
+self.onmessage=async({data})=>{try{const gs=await Module({noInitialRun:true,locateFile:file=>'./vendor/'+file,print:()=>{},printErr:()=>{}});gs.FS.writeFile('/input.pdf',new Uint8Array(data.buffer));const code=gs.callMain(['-dBATCH','-dNOPAUSE','-dSAFER','-sDEVICE=eps2write','-sOutputFile=/output.eps','/input.pdf']);if(code)throw Error('EPS conversion failed');const output=gs.FS.readFile('/output.eps');self.postMessage({output},[output.buffer]);}catch(e){self.postMessage({error:e.message});}};
