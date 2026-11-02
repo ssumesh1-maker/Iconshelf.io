@@ -4,3 +4,6 @@ dialog{padding:24px;border:1px solid #dbe2d4;border-radius:12px;width:min(800px,
 .icon-name{color:#74798c}.check-label{color:#686f83}
 @media(min-width:1700px){.icon-grid{grid-template-columns:repeat(8,minmax(0,1fr))}.icon-grid.compact{grid-template-columns:repeat(10,minmax(0,1fr))}.open-icon{height:128px}}
 .filter-group .filter-options{max-height:350px;overflow:auto;scrollbar-width:thin;scrollbar-color:#ded9e9 transparent}
+
+/* The notification uses the browser top layer so it stays above the modal backdrop. */
+#toast{margin:0;border:0;max-width:calc(100vw - 32px);width:max-content;text-align:center;box-sizing:border-box}#toast::backdrop{background:transparent;pointer-events:none}dialog{max-height:min(90dvh,calc(100dvh - 140px))}

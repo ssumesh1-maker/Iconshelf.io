@@ -5,7 +5,11 @@ const state={view:'icons',q:'',category:[],style:[],metaphor:[],pack:[],sort:'re
 let meta,currentIcon,items=[],requestId=0,controller,toastTimer;
 let saved;try{saved=new Set(JSON.parse(localStorage.getItem('icon-shelf-saved')||'[]').filter(x=>typeof x==='string'));}catch{saved=new Set();}
 const svgUrl=(id,size=48,color=state.color)=>iconUrl(id,size,color);
-function notify(message){$('#toast').textContent=message;$('#toast').classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('#toast').classList.remove('show'),2600);}
+function positionToast(){const toast=$('#toast'),dialog=$('#icon-dialog');if(dialog.open){const rect=dialog.getBoundingClientRect();toast.style.left=(rect.left+rect.width/2)+'px';toast.style.top=Math.min(rect.bottom+12,window.innerHeight-toast.offsetHeight-12)+'px';toast.style.bottom='auto';}else{toast.style.left='50%';toast.style.top='auto';toast.style.bottom='25px';}}
+function dismissToast(){clearTimeout(toastTimer);const toast=$('#toast');toast.classList.remove('show');if(toast.matches(':popover-open'))toast.hidePopover();}
+function notify(message){const toast=$('#toast'),dialog=$('#icon-dialog');dismissToast();(dialog.open?dialog:document.body).append(toast);toast.textContent=message;toast.showPopover();positionToast();toast.classList.add('show');toastTimer=setTimeout(dismissToast,2600);}
+window.addEventListener('resize',()=>{if($('#toast').classList.contains('show'))positionToast();});
+$('#icon-dialog').addEventListener('close',dismissToast);
 function syncSaved(){try{localStorage.setItem('icon-shelf-saved',JSON.stringify([...saved]));}catch{notify('Your browser could not save this collection.');}$('#saved-count').textContent=saved.size;$('#folder-count').textContent=saved.size;$$('.favorite').forEach(b=>{const yes=saved.has(b.dataset.save);b.classList.toggle('is-saved',yes);b.textContent=yes?'♥':'♡';b.setAttribute('aria-pressed',String(yes));b.setAttribute('aria-label',`${yes?'Remove':'Save'} ${b.dataset.save.split(':')[1].replaceAll('-',' ')}`);});if(currentIcon)$('#save-icon').textContent=saved.has(currentIcon.id)?'♥ Saved to my collection':'♡ Save to my collection';}
 function toggleSave(id){saved.has(id)?saved.delete(id):saved.add(id);syncSaved();if(state.view==='saved')load();}
 function packName(id){return meta.packs.find(p=>p.id===id)?.name||id;}
