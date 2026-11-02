@@ -35,3 +35,4 @@ dialog{max-width:calc(100vw - 32px);max-height:calc(100dvh - 128px);padding:clam
 @media(pointer:coarse){.nav,#mobile-filter,.folder-form-row input{min-height:44px}.color-palette,.density-control{min-height:46px}.density-control>button{min-height:34px}.favorite{opacity:1}}
 
 .detail-tags .detail-tag{display:inline-flex;align-items:center;min-height:28px;max-width:100%;padding:4px 9px;border:1px solid #e5dfed;border-radius:16px;font-size:10px;line-height:1.4;color:#80768f;overflow-wrap:anywhere;transition:background .15s,border-color .15s}.detail-tags .detail-tag:hover{background:#eee8fc;border-color:#c6b4ed;color:#6745b1}.detail-tags .detail-tag[data-browse-filter=pack]{background:#f1ecfc;color:#7254b0;border-color:#ded1f6}@media(pointer:coarse){.detail-tags .detail-tag{min-height:34px;padding-inline:11px}}
+@media(min-width:1729px){.app-shell{width:100%;max-width:none;margin:0;min-height:100dvh}}
