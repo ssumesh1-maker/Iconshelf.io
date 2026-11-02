@@ -42,6 +42,10 @@ For this repository, the expected project URL is `https://ssumesh1-maker.github.
 
 GitHub Pages availability for private repositories depends on the owner's GitHub plan. The site itself is public when published; it stores no personal favorites on the server. Favorites remain local to each browser and origin.
 
+## Typography
+
+Nunito Sans is applied through shared semantic tokens for headings, body copy, controls, labels and metadata. Body sizes are 14/15/16/18 px across phone/tablet/desktop/large viewports, with fluid headings and 16 px phone/tablet form fields. See [DESIGN.md](DESIGN.md) for token mappings, line heights, weights, contrast measurements and component decisions. Run `npm run test:typography` to check the computed system.
+
 ## Responsive layout and tag browsing
 
 The toolbar, icon grid, pack cards, library folders and popups adapt to the available viewport. Tablet and phone filters use the Filters button. Compact and wide views remain available, and short or landscape screens can scroll popup content while keeping its close control reachable.
