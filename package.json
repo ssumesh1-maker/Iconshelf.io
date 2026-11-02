@@ -9,7 +9,8 @@
     "test": "node --test",
     "build": "node scripts/build.mjs",
     "test:pages": "node tests/pages-browser.mjs",
-    "test:library": "node tests/library-browser.mjs"
+    "test:library": "node tests/library-browser.mjs",
+    "test:responsive": "node tests/responsive-browser.mjs"
   },
   "dependencies": {
     "@fontsource/nunito-sans": "5.3.0",

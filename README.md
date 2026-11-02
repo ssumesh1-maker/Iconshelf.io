@@ -42,6 +42,14 @@ For this repository, the expected project URL is `https://ssumesh1-maker.github.
 
 GitHub Pages availability for private repositories depends on the owner's GitHub plan. The site itself is public when published; it stores no personal favorites on the server. Favorites remain local to each browser and origin.
 
+## Responsive layout and tag browsing
+
+The toolbar, icon grid, pack cards, library folders and popups adapt to the available viewport. Tablet and phone filters use the Filters button. Compact and wide views remain available, and short or landscape screens can scroll popup content while keeping its close control reachable.
+
+In the icon popup, click the collection tag to browse its pack, or a style tag to browse icons matching that visual style. Function and metaphor tags also open filtered results. These are real links with shareable query URLs; browser Back restores the previous filters. Classification remains inferred from collection metadata and icon names.
+
+`npm run test:responsive` checks 24 portrait and landscape viewport combinations from 280 to 2560 CSS pixels wide, both grid densities, popup controls, filter panels, pack cards, library folders, touch mode and tag navigation.
+
 ## Formats
 
 - **SVG:** original vector shapes and chosen color.

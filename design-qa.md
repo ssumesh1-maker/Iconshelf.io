@@ -44,3 +44,7 @@ final result: passed
 ## GitHub Pages update
 
 The theme and layout are retained in the full-catalog static build. `/tmp/icon-shelf-full-catalog.png` and `/tmp/icon-shelf-full-catalog-mobile.png` show the deployed-route simulation at desktop/mobile sizes. The metadata now reports 506,483 entries including aliases and 276 collections. The pack selector scrolls within its group. The catalog, search worker, subpath-relative assets, every export format, persistent favorites, pack navigation, color controls and mobile filters passed Chromium checks without page errors. Deployment itself remains a separate verification step.
+
+## Responsive and tag-navigation update
+
+The existing theme is retained with an adaptive toolbar and grid. Reviewed phone/tablet captures: `/tmp/iconshelf-responsive-320.png`, `/tmp/iconshelf-responsive-768.png`; popup capture: `/tmp/iconshelf-responsive-dialog-1440.png`. Viewports from 280 to 2560 CSS px, including landscape heights of 320/375/390 px, passed overflow and control-reachability checks. Tablet filters collapse behind the Filters button. The collection, style, function and metaphor tags are now real links; filtered results, direct URLs, reload and browser Back passed Chromium checks. The full download and personal-library regression workflows also passed. These tests do not constitute testing every device or browser engine.
