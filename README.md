@@ -25,7 +25,9 @@ npm test
 node tests/pages-browser.mjs
 ```
 
-The browser check requires Chromium at `/usr/bin/chromium`. It verifies the full catalog, project subpath, search/filtering, saved favorites, pack browsing, responsive behavior, and the actual content of all five downloaded formats. Start the website before running it. The original Node API is retained in `server.js` and has its own eight tests; the deployed website does not use that API.
+The browser check requires Chromium at `/usr/bin/chromium`. It verifies the full catalog, project subpath, search/filtering, saved favorites, pack browsing, responsive behavior, and the actual content of all five downloaded formats. Start the website before running it. `node tests/library-browser.mjs` additionally checks folder creation, folder selection when favoriting, moving/unfiling icons, legacy favorite migration, mobile layout, and storage failure handling.
+
+The original Node API is retained in `server.js` and has its own eight tests; the deployed website does not use that API.
 
 ## GitHub Pages deployment
 
@@ -54,7 +56,9 @@ Multi-color icons keep their original palette. The color control changes shapes 
 
 Function, metaphor, and visual-style tags are inferred from icon names and collection metadata, not manually reviewed official Iconify classifications. Unsupported styles display an empty result. App and favicon categories suggest candidates, without generating application bundles or ICO files. Technology and brand packs can be found through text search and collection browsing.
 
-Favorites use browser local storage; clearing site storage removes them. Filters and search are represented in the URL. Results are paginated at 60 entries per page.
+Open **My library** to see your favorites and create folders with **New folder**. No folder controls are shown until you create your first folder. Once folders exist, saving a new favorite opens a folder picker; choose a folder or leave it unfiled. Use **Move** on a saved icon, or **Change folder** in its detail popup, to organize existing favorites. Existing favorites from earlier versions are preserved as unfiled icons.
+
+Favorites, folders, and folder assignments use browser local storage; clearing site storage removes them. They are personal to this browser and do not sync across devices. A failed storage write leaves the previous library unchanged. Filters and search are represented in the URL. Results are paginated at 60 entries per page.
 
 ## Licenses and sources
 
